@@ -21,26 +21,26 @@ mkdir -p /tmp/toolchain/build-newlib
 
 cd /tmp/toolchain/build-binutils
 /usr/src/$binutils/configure --target=$target --prefix=$prefix --disable-nls 2>&1
-make all 2>&1
+make -j $(nproc --all) all 2>&1
 make install 2>&1
 
 cd /tmp/toolchain/build-gcc
 /usr/src/$gcc/configure --target=$target --prefix=$prefix --disable-nls --enable-languages=c,c++ --enable-libstdcxx --without-headers 2>&1
-make all-gcc 2>&1
+make -j $(nproc --all) all-gcc 2>&1
 make install-gcc 2>&1
-make all-target-libgcc 2>&1
+make -j $(nproc --all) all-target-libgcc 2>&1
 make install-target-libgcc 2>&1
 
 ln -s -f $prefix/bin/* /usr/local/bin/
 
 cd /tmp/toolchain/build-newlib
 /usr/src/$newlib/configure --target=$target --prefix=$prefix 2>&1
-make all 2>&1
+make -j $(nproc --all) all 2>&1
 make install 2>&1
 
 cd /tmp/toolchain/build-gcc
 /usr/src/$gcc/configure --target=$target --prefix=$prefix --disable-nls --enable-languages=c,c++ --enable-libstdcxx --without-headers --with-newlib 2>&1
-make all-target-libstdc++-v3 2>&1
+make -j $(nproc --all) all-target-libstdc++-v3 2>&1
 make install-target-libstdc++-v3 2>&1
 
 ln -s -f $prefix/bin/* /usr/local/bin/
