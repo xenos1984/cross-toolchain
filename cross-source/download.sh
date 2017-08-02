@@ -3,7 +3,7 @@ set -e
 
 gcc_version=`wget -O - ftp://ftp.gnu.org/gnu/gcc/ | grep -o 'gcc-[0-9]\+.[0-9]\+.[0-9]\+' | sed 's/gcc-//' | sort -V | tail -n 1`
 binutils_version=`wget -O - ftp://ftp.gnu.org/gnu/binutils/ | grep -o 'binutils-[0-9]\+.[0-9]\+\(.[0-9]\+\)\?' | sed 's/binutils-//' | sort -V | tail -n 1`
-newlib_version=`wget -O - ftp://sources.redhat.com/pub/newlib/ | grep -o 'newlib-[0-9]\+.[0-9]\+\(.[0-9]\+\)\?' | sed 's/newlib-//' | sort -V | tail -n 1`
+newlib_version=`wget -O - ftp://sources.redhat.com/pub/newlib/ | grep -o 'newlib-[0-9]\+.[0-9]\+.[0-9]\+\?' | sed 's/newlib-//' | sort -V | tail -n 1`
 
 echo "Latest gcc version: $gcc_version"
 echo "Latest binutils version: $binutils_version"
