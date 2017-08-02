@@ -4,11 +4,13 @@ set -e
 target=$1
 prefix=/usr/cross/$target
 
+ls /usr
+ls /usr/src
+
 gcc=`ls -1 /usr/src | grep -o 'gcc-[0-9]\+.[0-9]\+.[0-9]\+'`
 binutils=`ls -1 /usr/src | grep -o 'binutils-[0-9]\+.[0-9]\+.[0-9]\+'`
 newlib=`ls -1 /usr/src | grep -o 'newlib-[0-9]\+.[0-9]\+.[0-9]\+'`
 
-ls /usr/src
 echo "Building $gcc, $binutils and $newlib for target $target."
 
 mkdir -p /usr/cross
