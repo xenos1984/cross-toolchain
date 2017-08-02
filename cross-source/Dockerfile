@@ -7,5 +7,5 @@ ADD download.sh /usr/bin/download.sh
 
 RUN locale-gen "en_US.UTF-8"
 
-RUN /usr/bin/toolchain.sh
+RUN /usr/bin/download.sh
 
