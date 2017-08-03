@@ -4,9 +4,6 @@ set -e
 target=$1
 prefix=/usr/cross/$target
 
-ls /usr
-ls /usr/src
-
 gcc=`ls -1 /usr/src | grep -o 'gcc-[0-9]\+.[0-9]\+.[0-9]\+'`
 binutils=`ls -1 /usr/src | grep -o 'binutils-[0-9]\+.[0-9]\+\(.[0-9]\+\)\?'`
 newlib=`ls -1 /usr/src | grep -o 'newlib-[0-9]\+.[0-9]\+.[0-9]\+'`
@@ -47,4 +44,7 @@ ln -s -f $prefix/bin/* /usr/local/bin/
 
 cd /tmp
 rm -rf /tmp/toolchain
+rm -rf /usr/src/$gcc
+rm -rf /usr/src/$binutils
+rm -rf /usr/src/$newlib
 
