@@ -11,9 +11,9 @@ echo "Latest binutils version: $binutils_version"
 mkdir -p /usr/src
 cd /usr/src
 
-wget -c -O /tmp/gcc-$gcc_version.tar.bz2 ftp://ftp.gnu.org/gnu/gcc/gcc-$gcc_version/gcc-$gcc_version.tar.bz2
-tar -xf /tmp/gcc-$gcc_version.tar.bz2
-rm /tmp/gcc-$gcc_version.tar.bz2
+wget -c -O /tmp/gcc-$gcc_version.tar.xz ftp://ftp.gnu.org/gnu/gcc/gcc-$gcc_version/gcc-$gcc_version.tar.xz
+tar -xf /tmp/gcc-$gcc_version.tar.xz
+rm /tmp/gcc-$gcc_version.tar.xz
 
 wget -c -O /tmp/binutils-$binutils_version.tar.bz2 ftp://ftp.gnu.org/gnu/binutils/binutils-$binutils_version.tar.bz2
 tar -xf /tmp/binutils-$binutils_version.tar.bz2
