@@ -1,4 +1,4 @@
-FROM xenos1984/tools-qemu:latest
+FROM xenos1984/source-qemu:latest
 
 ADD build.sh /usr/bin/build.sh
 
