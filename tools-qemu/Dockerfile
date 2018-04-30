@@ -4,3 +4,7 @@ RUN apt-get update && apt-get install -y git build-essential wget autoconf autom
 
 RUN locale-gen "en_US.UTF-8"
 
+ADD download.sh /usr/bin/download.sh
+
+RUN /usr/bin/download.sh
+

@@ -1,15 +1,13 @@
 #!/bin/bash
 set -e
 
-version=`wget -O - http://download.qemu.org/ | grep -o 'qemu-[0-9]\+.[0-9]\+.[0-9]\+' | sed 's/qemu-//' | sort -V | tail -n 1`
+qemu=`ls -1 /usr/src | grep -o 'qemu-[0-9]\+.[0-9]\+.[0-9]\+'`
 
-cd /tmp
-wget -c -O qemu-$version.tar.xz http://download.qemu.org/qemu-$version.tar.xz
-tar -xf qemu-$version.tar.xz
-cd qemu-$version
-./configure
+mkdir -p /tmp/build-qemu
+cd /tmp/build-qemu
+/usr/src/$qemu/configure
 make
 make install
 cd /tmp
-rm -rf qemu-$version.tar.xz qemu-$version
+rm -rf /tmp/build-qemu /usr/src/$qemu
 
