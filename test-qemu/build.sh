@@ -5,7 +5,7 @@ qemu=`ls -1 /usr/src | grep -o 'qemu-[0-9]\+.[0-9]\+.[0-9]\+'`
 
 mkdir -p /tmp/build-qemu
 cd /tmp/build-qemu
-/usr/src/$qemu/configure
+/usr/src/$qemu/configure --disable-user
 make
 make install
 cd /tmp
