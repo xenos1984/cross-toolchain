@@ -10,4 +10,3 @@ make
 make install
 cd /tmp
 rm -rf /tmp/build-qemu /usr/src/$qemu
-

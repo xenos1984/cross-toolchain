@@ -9,4 +9,3 @@ cd /usr/src
 wget -c -O /tmp/qemu-$version.tar.xz http://download.qemu.org/qemu-$version.tar.xz
 tar -xf /tmp/qemu-$version.tar.xz
 rm /tmp/qemu-$version.tar.xz
-
