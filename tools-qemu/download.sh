@@ -10,6 +10,8 @@ wget -c -O /tmp/qemu-$version.tar.xz http://download.qemu.org/qemu-$version.tar.
 tar -xf /tmp/qemu-$version.tar.xz
 rm /tmp/qemu-$version.tar.xz
 
+cd qemu-$version
+
 patch -u --ignore-whitespace backends/hostmem.c << 'EOF'
 --- a/backends/hostmem.c
 +++ b/backends/hostmem.c
