@@ -3,7 +3,7 @@ set -e
 
 gcc_version=`wget -O - ftp://ftp.gnu.org/gnu/gcc/ | grep -o 'gcc-[0-9]\+.[0-9]\+.[0-9]\+' | sed 's/gcc-//' | sort -V | tail -n 1`
 binutils_version=`wget -O - ftp://ftp.gnu.org/gnu/binutils/ | grep -o 'binutils-[0-9]\+.[0-9]\+\(.[0-9]\+\)\?' | sed 's/binutils-//' | sort -V | tail -n 1`
-newlib_version=`wget -O - ftp://sources.redhat.com/pub/newlib/ | grep -o 'newlib-[0-9]\+.[0-9]\+.[0-9]\+\?' | sed 's/newlib-//' | sort -V | tail -n 1`
+newlib_version=`wget -O - ftp://sourceware.org/pub/newlib/ | grep -o 'newlib-[0-9]\+.[0-9]\+.[0-9]\+\?' | sed 's/newlib-//' | sort -V | tail -n 1`
 
 echo "Latest gcc version: $gcc_version"
 echo "Latest binutils version: $binutils_version"
@@ -25,7 +25,7 @@ EOF
 patch -u --ignore-whitespace gcc-$gcc_version/gcc/config.gcc << 'EOF'
 --- config.gcc
 +++ /tmp/config.gcc
-@@ -1638,2 +1638,3 @@
+@@ -1899,2 +1899,3 @@
  x86_64-*-elf*)
 +	tmake_file="${tmake_file} i386/t-x86_64-elf" # include the new multilib configuration
  	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h newlib-stdint.h i386/i386elf.h i386/x86-64.h"
@@ -35,7 +35,6 @@ wget -c -O /tmp/binutils-$binutils_version.tar.bz2 ftp://ftp.gnu.org/gnu/binutil
 tar -xf /tmp/binutils-$binutils_version.tar.bz2
 rm /tmp/binutils-$binutils_version.tar.bz2
 
-wget -c -O /tmp/newlib-$newlib_version.tar.gz ftp://sources.redhat.com/pub/newlib/newlib-$newlib_version.tar.gz
+wget -c -O /tmp/newlib-$newlib_version.tar.gz ftp://sourceware.org/pub/newlib/newlib-$newlib_version.tar.gz
 tar -xf /tmp/newlib-$newlib_version.tar.gz
 rm /tmp/newlib-$newlib_version.tar.gz
-
