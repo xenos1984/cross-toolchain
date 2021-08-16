@@ -27,7 +27,7 @@ patch -u --ignore-whitespace gcc-$gcc_version/gcc/config.gcc << 'EOF'
 +++ /tmp/config.gcc
 @@ -1899,2 +1899,3 @@
  x86_64-*-elf*)
-+	tmake_file="${tmake_file} i386/t-x86_64-elf" # include the new multilib configuration
++	tmake_file="${tmake_file} i386/t-x86_64-elf"
  	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h newlib-stdint.h i386/i386elf.h i386/x86-64.h"
 EOF
 

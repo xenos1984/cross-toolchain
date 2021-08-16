@@ -59,4 +59,3 @@ rm -rf /tmp/toolchain
 rm -rf /usr/src/$gcc
 rm -rf /usr/src/$binutils
 rm -rf /usr/src/$newlib
-
