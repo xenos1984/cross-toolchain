@@ -5,11 +5,11 @@ target=$1
 prefix=/usr/cross/$target
 
 case $target in
-i686-pc-elf)
-	targets=$target,i686-pc-pe
+i686-elf)
+	targets=$target,i686-pe
 	;;
-x86_64-pc-elf)
-	targets=$target,x86_64-pc-pe
+x86_64-elf)
+	targets=$target,x86_64-pe
 	;;
 *)
 	targets=$target
