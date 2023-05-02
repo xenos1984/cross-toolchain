@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-version=`wget -O - http://download.qemu.org/ | grep -o 'qemu-[0-9]\+.[0-9]\+.[0-9]\+' | sed 's/qemu-//' | sort -V | tail -n 1`
+version=`wget -O - http://www.qemu.org/ | grep -o 'qemu-[0-9]\+\.[0-9]\+\.[0-9]\+\.tar' | sed 's/qemu-//' | sed 's/.tar//' | sort -V | tail -n 1`
 
 mkdir -p /usr/src
 cd /usr/src

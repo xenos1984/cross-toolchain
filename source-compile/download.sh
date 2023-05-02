@@ -27,19 +27,14 @@ EOF
 
 fi
 
-if ! grep -q t-x86_64-elf gcc-$gcc_version/gcc/config.gcc
-then
-
 patch -u --ignore-whitespace gcc-$gcc_version/gcc/config.gcc << 'EOF'
 --- config.gcc
 +++ /tmp/config.gcc
-@@ -1899,2 +1899,3 @@
+@@ -1867,2 +1867,3 @@
  x86_64-*-elf*)
 +	tmake_file="${tmake_file} i386/t-x86_64-elf"
  	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h newlib-stdint.h i386/i386elf.h i386/x86-64.h"
 EOF
-
-fi
 
 wget -c -O /tmp/binutils-$binutils_version.tar.bz2 ftp://ftp.gnu.org/gnu/binutils/binutils-$binutils_version.tar.bz2
 tar -xf /tmp/binutils-$binutils_version.tar.bz2
