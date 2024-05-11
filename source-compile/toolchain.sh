@@ -43,7 +43,7 @@ make install-target-libgcc 2>&1
 ln -s -f $prefix/bin/* /usr/local/bin/
 
 cd /tmp/toolchain/build-newlib
-/usr/src/$newlib/configure --target=$target --prefix=$prefix 2>&1
+CFLAGS_FOR_TARGET="-fpermissive" /usr/src/$newlib/configure --target=$target --prefix=$prefix 2>&1
 make -j $(nproc --all) all 2>&1
 make install 2>&1
 
