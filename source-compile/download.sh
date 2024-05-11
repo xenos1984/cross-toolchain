@@ -40,7 +40,8 @@ wget -c -O /tmp/binutils-$binutils_version.tar.bz2 ftp://ftp.gnu.org/gnu/binutil
 tar -xf /tmp/binutils-$binutils_version.tar.bz2
 rm /tmp/binutils-$binutils_version.tar.bz2
 
-wget -c -O /tmp/newlib-$newlib_version.tar.gz `wget -O - ftp://sourceware.org/pub/newlib/ | grep -o "ftp[^\"]*newlib-$newlib_version[^\"]*.tar.gz" | sort | tail -n 1`
-tar -xf /tmp/newlib-$newlib_version.tar.gz
-rm /tmp/newlib-$newlib_version.tar.gz
-mv newlib-$newlib_version.* newlib-$newlib_version
+#wget -c -O /tmp/newlib-$newlib_version.tar.gz `wget -O - ftp://sourceware.org/pub/newlib/ | grep -o "ftp[^\"]*newlib-$newlib_version[^\"]*.tar.gz" | sort | tail -n 1`
+#tar -xf /tmp/newlib-$newlib_version.tar.gz
+#rm /tmp/newlib-$newlib_version.tar.gz
+#mv newlib-$newlib_version.* newlib-$newlib_version
+git clone http://sourceware.org/git/newlib-cygwin.git newlib-$newlib_version
